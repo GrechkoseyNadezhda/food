@@ -53,3 +53,5 @@ function modal() {
 
     window.addEventListener("scroll", showModalByScroll);
 }
+
+module.exports = modal;

@@ -78,3 +78,5 @@ function forms() {
         }, 4000);
     }
 }
+
+module.exports = forms;
