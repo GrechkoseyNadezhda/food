@@ -1,7 +1,5 @@
-function timer() {
+function timer(id, deadline) {
     // Timer
-
-    const deadline = "2023-04-15";
 
     function getZero(num) {
         if (num >= 0 && num < 10) {
@@ -59,7 +57,7 @@ function timer() {
         }
     }
 
-    setClock(".timer", deadline);
+    setClock(id, deadline);
 }
 
-module.exports = timer;
+export default timer;

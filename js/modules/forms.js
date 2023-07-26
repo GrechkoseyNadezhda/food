@@ -1,7 +1,10 @@
-function forms() {
+import { onOpenModal, onCloseModal } from "./modal";
+import { postData } from "../services/services";
+
+function forms(formSelector, modalTimerId) {
     // Forms
 
-    const forms = document.querySelectorAll("form");
+    const forms = document.querySelectorAll(formSelector);
 
     const message = {
         loading: "Loading...",
@@ -12,18 +15,6 @@ function forms() {
     forms.forEach((item) => {
         bindPostData(item);
     });
-
-    const postData = async (url, data) => {
-        const res = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: data,
-        });
-        console.log(res);
-        return await res.json();
-    };
 
     function bindPostData(form) {
         form.addEventListener("submit", (e) => {
@@ -60,7 +51,7 @@ function forms() {
         const prevModalDialog = document.querySelector(".modal__dialog");
 
         prevModalDialog.classList.add("hide");
-        onOpenModal();
+        onOpenModal(".modal", modalTimerId);
 
         const thanksModal = document.createElement("div");
         thanksModal.classList.add("modal__dialog");
@@ -74,9 +65,9 @@ function forms() {
         setTimeout(() => {
             thanksModal.remove();
             prevModalDialog.classList.remove("hide");
-            onCloseModal();
+            onCloseModal(".modal");
         }, 4000);
     }
 }
 
-module.exports = forms;
+export default forms;
