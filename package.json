@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
     "json-server": "^0.17.3",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
